@@ -5,7 +5,6 @@ import "https://github.com/lovecashmere/crypto/projects/FlashLoan/aave/interface
 import "https://github.com/lovecashmere/crypto/projects/FlashLoan/aave/interfaces/ILendingPool.sol";
 import "https://github.com/lovecashmere/crypto/projects/FlashLoan/aave/interfaces/ILendingPoolAddressesProvider.sol";
 import "https://github.com/lovecashmere/crypto/projects/FlashLoan/utils/Addresses.sol";
-import "https://github.com/lovecashmere/crypto/projects/FlashLoan/utils/Destroyable.sol";
 import "https://github.com/lovecashmere/crypto/projects/FlashLoan/utils/Owned.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/math/SafeMath.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/access/Ownable.sol";
@@ -15,7 +14,7 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/token/E
 
 
 // The following is the Kovan Testnet address for the LendingPoolAddressProvider. Get the correct address for your network from: https://docs.aave.com/developers/developing-on-aave/deployed-contract-instances
-contract MyFlashloanContract is Addresses, Owned, Destroyable, FlashLoanReceiverBase {
+contract MyFlashloanContract is Addresses, Owned, FlashLoanReceiverBase {
 
     // Kovan testnet address - COMMENT OUT WHEN DEPLOYING TO MAINNET
     constructor(address _addressProvider) FlashLoanReceiverBase(0x506B0B2CF20FAA8f38a4E2B524EE43e1f4458Cc5) public {}
