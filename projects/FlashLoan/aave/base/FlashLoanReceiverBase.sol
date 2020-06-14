@@ -1,8 +1,8 @@
 pragma solidity ^0.6.6;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/math/SafeMath.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/SafeERC20.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/math/SafeMath.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/token/ERC20/SafeERC20.sol";
 import "https://github.com/lovecashmere/crypto/projects/flashloan/aave/interfaces/IFlashLoanReceiver.sol";
 import "https://github.com/lovecashmere/crypto/projects/flashloan/aave/interfaces/ILendingPoolAddressesProvider.sol";
 import "https://github.com/lovecashmere/crypto/projects/flashloan/aave/utils/Withdrawable.sol";
