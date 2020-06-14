@@ -1,7 +1,5 @@
 pragma solidity ^0.6.6;
 
-//store these files in own GitHub & amend FlashloanReceiverBase.sol @openzeppelin to ./
-
 import "https://github.com/lovecashmere/crypto/projects/flashloan/aave/base/FlashLoanReceiverBase.sol"
 import "https://github.com/lovecashmere/crypto/projects/flashloan/aave/interfaces/IFlashLoanReceiver.sol"
 import "https://github.com/lovecashmere/crypto/projects/flashloan/aave/interfaces/ILendingPool.sol"
