@@ -34,6 +34,9 @@ contract MyFlashloanContract is Addresses, Ownable, Destroyable, FlashLoanReceiv
         address assetBorrow = getAddress(fromToken);
         address assetExchange = getAddress(toToken);
 
+        payable (assetBorrow);
+        payable (assetExchange);
+
         ILendingPool lendingPool = ILendingPool(addressesProvider.getLendingPool());
         lendingPool.flashLoan(address(this), assetBorrow, amount, data);
     }
