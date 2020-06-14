@@ -5,7 +5,7 @@ import "https://github.com/lovecashmere/crypto/projects/FlashLoan/aave/interface
 import "https://github.com/lovecashmere/crypto/projects/FlashLoan/aave/interfaces/ILendingPool.sol";
 import "https://github.com/lovecashmere/crypto/projects/FlashLoan/aave/interfaces/ILendingPoolAddressesProvider.sol";
 import "https://github.com/lovecashmere/crypto/projects/FlashLoan/utils/Addresses.sol";
-import "https://github.com/lovecashmere/crypto/projects/FlashLoan/utils/Owned.sol";
+import "https://github.com/lovecashmere/crypto/projects/FlashLoan/utils/Destroyable.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/math/SafeMath.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/access/Ownable.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
@@ -14,10 +14,14 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/token/E
 
 
 // The following is the Kovan Testnet address for the LendingPoolAddressProvider. Get the correct address for your network from: https://docs.aave.com/developers/developing-on-aave/deployed-contract-instances
-contract MyFlashloanContract is Addresses, Owned, FlashLoanReceiverBase {
+contract MyFlashloanContract is Addresses, Destroyable, FlashLoanReceiverBase {
+
+    address payable Owner;
 
     // Kovan testnet address - COMMENT OUT WHEN DEPLOYING TO MAINNET
-    constructor(address _addressProvider) FlashLoanReceiverBase(0x506B0B2CF20FAA8f38a4E2B524EE43e1f4458Cc5) public {}
+    constructor(address _addressProvider) FlashLoanReceiverBase(0x506B0B2CF20FAA8f38a4E2B524EE43e1f4458Cc5) public {
+        Owner = msg.sender;
+    }
 
     // // Mainnet address - COMMENT OUT WHEN DEPLOYING TO KOVAN TESTNET
     // constructor(address _addressProvider) FlashLoanReceiverBase(0x24a42fD28C976A61Df5D00D0599C34c4f90748c8) public {}
@@ -27,7 +31,7 @@ contract MyFlashloanContract is Addresses, Owned, FlashLoanReceiverBase {
     event WithdrawSuccess(string message);
 
     // Carry out flash loan  -  this then calls function executeOperation
-    function flashloan(uint256 LoanAmount, string memory fromToken, string memory toToken) public OwnerOnly {
+    function flashloan(uint256 LoanAmount, string memory fromToken, string memory toToken) public onlyOwner {
         bytes memory data = "";
         uint amount = LoanAmount;
         address assetBorrow = getAddress(fromToken);
@@ -92,7 +96,7 @@ contract MyFlashloanContract is Addresses, Owned, FlashLoanReceiverBase {
 
 
     //Withdraw funds
-    function WithdrawFunds() public payable OwnerOnly{
+    function WithdrawFunds() public payable onlyOwner{
         Owner.transfer(address(this).balance);
 
         emit WithdrawSuccess("Withdraw funds successful.");
