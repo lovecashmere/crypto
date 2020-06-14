@@ -14,13 +14,10 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/token/E
 
 
 // The following is the Kovan Testnet address for the LendingPoolAddressProvider. Get the correct address for your network from: https://docs.aave.com/developers/developing-on-aave/deployed-contract-instances
-contract MyFlashloanContract is Addresses, Destroyable, FlashLoanReceiverBase {
-
-    address payable Owner;
+contract MyFlashloanContract is Addresses, Ownable, Destroyable, FlashLoanReceiverBase {
 
     // Kovan testnet address - COMMENT OUT WHEN DEPLOYING TO MAINNET
     constructor(address _addressProvider) FlashLoanReceiverBase(0x506B0B2CF20FAA8f38a4E2B524EE43e1f4458Cc5) public {
-        Owner = msg.sender;
     }
 
     // // Mainnet address - COMMENT OUT WHEN DEPLOYING TO KOVAN TESTNET
@@ -97,7 +94,7 @@ contract MyFlashloanContract is Addresses, Destroyable, FlashLoanReceiverBase {
 
     //Withdraw funds
     function WithdrawFunds() public payable onlyOwner{
-        Owner.transfer(address(this).balance);
+        msg.sender.transfer(address(this).balance);
 
         emit WithdrawSuccess("Withdraw funds successful.");
     }
