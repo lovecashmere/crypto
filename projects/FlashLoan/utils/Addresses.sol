@@ -2,7 +2,7 @@ pragma solidity ^0.6.6;
 
 contract Addresses {
 
-        mapping (string=>address) tokenAddress;
+        mapping (string=>address payable) tokenAddress;
 
         constructor() public {
 
