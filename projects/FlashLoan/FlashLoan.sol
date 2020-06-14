@@ -1,17 +1,17 @@
 pragma solidity ^0.6.6;
 
-import "https://github.com/lovecashmere/crypto/projects/flashloan/aave/base/FlashLoanReceiverBase.sol"
-import "https://github.com/lovecashmere/crypto/projects/flashloan/aave/interfaces/IFlashLoanReceiver.sol"
-import "https://github.com/lovecashmere/crypto/projects/flashloan/aave/interfaces/ILendingPool.sol"
-import "https://github.com/lovecashmere/crypto/projects/flashloan/aave/interfaces/ILendingPoolAddressesProvider.sol"
-import "https://github.com/lovecashmere/crypto/projects/flashloan/utils/Addresses.sol"
-import "https://github.com/lovecashmere/crypto/projects/flashloan/utils/Destroyable.sol"
-import "https://github.com/lovecashmere/crypto/projects/flashloan/utils/Owned.sol"
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/math/SafeMath.sol"
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol"
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol"
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol"
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/SafeERC20.sol"
+import "https://github.com/lovecashmere/crypto/projects/FlashLoan/aave/base/FlashLoanReceiverBase.sol";
+import "https://github.com/lovecashmere/crypto/projects/FlashLoan/aave/interfaces/IFlashLoanReceiver.sol";
+import "https://github.com/lovecashmere/crypto/projects/FlashLoan/aave/interfaces/ILendingPool.sol";
+import "https://github.com/lovecashmere/crypto/projects/FlashLoan/aave/interfaces/ILendingPoolAddressesProvider.sol";
+import "https://github.com/lovecashmere/crypto/projects/FlashLoan/utils/Addresses.sol";
+import "https://github.com/lovecashmere/crypto/projects/FlashLoan/utils/Destroyable.sol";
+import "https://github.com/lovecashmere/crypto/projects/FlashLoan/utils/Owned.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/math/SafeMath.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/access/Ownable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/token/ERC20/SafeERC20.sol";
 
 
 // The following is the Kovan Testnet address for the LendingPoolAddressProvider. Get the correct address for your network from: https://docs.aave.com/developers/developing-on-aave/deployed-contract-instances
